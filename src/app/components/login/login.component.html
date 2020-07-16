@@ -1,0 +1,22 @@
+<div class="cont-login">
+  <div class="cont-loading" *ngIf="!user && !loading">
+    <div class="circle loading"></div>
+    <div class="loading"></div>
+    <div class="loading"></div>
+    <div class="loading"></div>
+  </div>
+  <div class="profile" *ngIf="user">
+    <div>
+      <img src="{{ user.photoUrl }}" alt="perfil" />
+      <div>
+        <h4>{{ user.name }}</h4>
+        <p>{{ user.email }}</p>
+      </div>
+      <button class="out" (click)="signOut()">Salir</button>
+    </div>
+  </div>
+  <div class="buttons" *ngIf="!user && loading">
+    <button class="go" (click)="signInWithGoogle()">Login Google</button>
+    <button class="fb" (click)="signInWithFB()">Login Facebook</button>
+  </div>
+</div>
